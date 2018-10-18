@@ -1,0 +1,63 @@
+---
+
+- name: local playbook
+  hosts: all
+  become: yes
+  become_user: root
+
+  tasks:
+  - name: update all
+    yum:
+      name: '*'
+      state: latest
+    become: yes
+    become_user: root
+    
+  - name: install requirements
+    yum:
+      name: 
+       - nginx
+       - git
+      state: present
+  
+  - name: copy web nginx conf
+    copy:
+      src: nginx.conf 
+      dest: /etc/nginx/nginx.conf
+      owner: root
+      group: root
+  
+  - name: enable nginx
+    service:
+      name: nginx
+      enabled: yes
+  
+  - name: clone code repo
+    git:
+      repo: "https://github.com/deobieta/ec2-automation-workshop.git"
+      dest: /home/ec2-user/web
+      version: master
+    become: yes
+    become_user: ec2-user
+  
+  - name: install web requirements
+    pip:
+      requirements: /home/ec2-user/web/python/requirements.txt
+  
+  - name: copy init script
+    copy:
+      src: web.conf
+      dest: /etc/init/web.conf
+      owner: root
+      group: root
+  
+  - name: reload init configuration
+    shell: /sbin/initctl reload-configuration
+  
+
+  
+
+  
+  
+    
+  

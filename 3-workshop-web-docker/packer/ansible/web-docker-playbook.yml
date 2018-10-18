@@ -1,0 +1,46 @@
+---
+
+- name: local playbook
+  hosts: all
+  become: yes
+  become_user: root
+
+  tasks:
+  - name: update all
+    yum:
+      name: '*'
+      state: latest
+    become: yes
+    become_user: root
+    
+  - name: install requirements
+    yum:
+      name: 
+       - nginx
+       - docker
+      state: present
+  
+  - name: copy web nginx conf
+    copy:
+      src: nginx.conf 
+      dest: /etc/nginx/nginx.conf
+      owner: root
+      group: root
+  
+  - name: enable nginx
+    service:
+      name: nginx
+      enabled: yes
+  
+  - name: enable docker
+    service:
+      name: docker
+      enabled: yes
+
+
+  
+
+  
+  
+    
+  

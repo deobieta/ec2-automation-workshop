@@ -1,0 +1,25 @@
+{
+  "_comment": "Build with `packer build web.json`",
+  "provisioners": [
+    {
+      "type": "ansible",
+      "playbook_file": "ansible/web-playbook.yml"
+    }
+  ],
+  "builders": [
+    {
+      "name": "amazon-linux-ebs",
+      "type": "amazon-ebs",
+      "region": "us-east-2",
+      "source_ami": "ami-0e983e0e156f6152e",
+      "instance_type": "t2.micro",
+      "ssh_username": "ec2-user",
+      "ssh_interface": "private_ip",
+      "ami_name": "web.{{timestamp}}",
+      "tags": {
+        "Name": "web.{{timestamp}}",
+        "Application": "NGINX + Flask"
+      }
+    }
+  ]
+}
