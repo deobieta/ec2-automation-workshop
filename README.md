@@ -5,11 +5,11 @@
 
 * [Resumen del taller](https://github.com/deobieta/ec2-automation-workshop/blob/master/README.md#resumen-del-taller)
 * [Crear usuario administrador para el taller](https://github.com/deobieta/ec2-automation-workshop/blob/master/README.md#crear-usuario-administrador-para-el-taller)
-* [Establece llaves de acceso en la configuración de Terraform](https://github.com/deobieta/ec2-automation-workshop/blob/master/README.md#Establece-llaves-de-acceso-en-la-configuracion-de-Terraform)
+* [Establece llaves de acceso en la configuracion de Terraform](https://github.com/deobieta/ec2-automation-workshop/blob/master/README.md#Establece-llaves-de-acceso-en-la-configuracion-de-Terraform)
 * [Crear servidor mgmt](https://github.com/deobieta/ec2-automation-workshop/blob/master/README.md#crear-servidor-mgmt)
-* [Crear imagen Web con Aplicación en Docker](https://github.com/deobieta/ec2-automation-workshop/blob/master/README.md#crear-imagen-web-con-aplicacion-en-docker)
+* [Crear imagen Web con Aplicacion en Docker](https://github.com/deobieta/ec2-automation-workshop/blob/master/README.md#crear-imagen-web-con-aplicacion-en-docker)
 * [rear repositorio en ECR y construir imagen de Docker](https://github.com/deobieta/ec2-automation-workshop/blob/master/README.md#crear-repositorio-en-ECR-y-construir-imagen-de-docker)
-* [Crear servidor Web con aplicación en Docker](https://github.com/deobieta/ec2-automation-workshop/blob/master/README.md#crear-servidor-web-con-aplicacion-en-docker)
+* [Crear servidor Web con aplicacion en Docker](https://github.com/deobieta/ec2-automation-workshop/blob/master/README.md#crear-servidor-web-con-aplicacion-en-docker)
 * [Limpiar taller](https://github.com/deobieta/ec2-automation-workshop/blob/master/README.md#limpiar-taller)
 
 
@@ -52,7 +52,7 @@ Descargar las llaves de acceso para hacer llamadas al API de AWS.
 
 ![keys output](/readme-images/iam/3.png)
 
-## Establece llaves de acceso en la configuración de Terraform
+## Establece llaves de acceso en la configuracion de Terraform
 
 Para establecer las llaves de acceso puedes exportar las credenciales como variables de ambiente. 
 
@@ -113,7 +113,7 @@ Utiliza la dirección IP de la salida aws_eip_web_public_ip en cualquier navegad
 
 **Hacer otra versión de la aplicación y cambiar EIP.
 
-## Crear imagen Web con Aplicación en Docker
+## Crear imagen Web con Aplicacion en Docker
 
 Entra al servidor via secure shell utilizando la llave privada insegura de Vagrant y el usuario de Amazon Linux.
 
@@ -196,7 +196,7 @@ Push de imagen de Docker:
 
 [![asciicast](https://asciinema.org/a/fAE65czJqZAfoGCeB3NvLoeix.png)](https://asciinema.org/a/fAE65czJqZAfoGCeB3NvLoeix)
 
-## Crear servidor Web con aplicación en Docker
+## Crear servidor Web con aplicacion en Docker
 
 Una vez creada la imagen pre-configurada podemos aprovisionar un servidor que sirva nuestra applicación Web. El servidor consiste de un servidor Web (NGINX) que sirve como proxy para servir una aplicación hecha en python Flask que corre dentro de un contenedor de Docker. Para mas detalles de la aplicación ver el archivo de configuración del servidor que es 2-workshop-web/packer/ansible/web-playbook.yml
 
