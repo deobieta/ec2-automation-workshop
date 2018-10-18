@@ -5,11 +5,11 @@
 
 * [Resumen del taller](https://github.com/deobieta/ec2-automation-workshop/blob/master/README.md#resumen-del-taller)
 * [Crear usuario administrador para el taller](https://github.com/deobieta/ec2-automation-workshop/blob/master/README.md#crear-usuario-administrador-para-el-taller)
-* [Establece llaves de acceso en la configuración de Terraform](https://github.com/deobieta/ec2-automation-workshop/blob/master/README.md#Establece-llaves-de-acceso-en-la-configuración-de-Terraform)
+* [Establece llaves de acceso en la configuración de Terraform](https://github.com/deobieta/ec2-automation-workshop/blob/master/README.md#Establece-llaves-de-acceso-en-la-configuracion-de-Terraform)
 * [Crear servidor mgmt](https://github.com/deobieta/ec2-automation-workshop/blob/master/README.md#crear-servidor-mgmt)
-* [Crear imagen Web con Aplicación en Docker](https://github.com/deobieta/ec2-automation-workshop/blob/master/README.md#crear-imagen-web-con-aplicación-en-docker)
+* [Crear imagen Web con Aplicación en Docker](https://github.com/deobieta/ec2-automation-workshop/blob/master/README.md#crear-imagen-web-con-aplicacion-en-docker)
 * [rear repositorio en ECR y construir imagen de Docker](https://github.com/deobieta/ec2-automation-workshop/blob/master/README.md#crear-repositorio-en-ECR-y-construir-imagen-de-docker)
-* [Crear servidor Web con aplicación en Docker](https://github.com/deobieta/ec2-automation-workshop/blob/master/README.md#crear-servidor-web-con-aplicación-en-docker)
+* [Crear servidor Web con aplicación en Docker](https://github.com/deobieta/ec2-automation-workshop/blob/master/README.md#crear-servidor-web-con-aplicacion-en-docker)
 * [Limpiar taller](https://github.com/deobieta/ec2-automation-workshop/blob/master/README.md#limpiar-taller)
 
 
