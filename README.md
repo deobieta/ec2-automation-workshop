@@ -224,8 +224,7 @@ Utiliza la dirección IP de la salida aws_eip_web_docker_public_ip en cualquier 
 ## Limpiar taller
 
     $ cd ~/3-workshop-web-docker/terraform/
-    $ rm ami.tf ec2.tf ecr.tf iam.tf
-    $ terraform apply
+    $ terraform destroy
 
     Do you want to perform these actions?
     Terraform will perform the actions described above.
@@ -234,8 +233,7 @@ Utiliza la dirección IP de la salida aws_eip_web_docker_public_ip en cualquier 
     Enter a value: yes
 
     $ cd ~/2-workshop-web/terraform/
-    $ rm ami.tf ec2.tf eip.tf security-groups.tf 
-    $ terraform apply 
+    $ terraform destroy
     
     Do you want to perform these actions?
     Terraform will perform the actions described above.
@@ -246,17 +244,13 @@ Utiliza la dirección IP de la salida aws_eip_web_docker_public_ip en cualquier 
     $ exit
 
     $ cd ec2-automation-workshop/1-workshop-mgmt/terraform/
-    $ rm ec2.tf
-    $ terraform apply 
+    $ terraform destroy
     
     Do you want to perform these actions?
     Terraform will perform the actions described above.
     Only 'yes' will be accepted to approve.
 
     Enter a value: yes
-
-
-[![asciicast](https://asciinema.org/a/ZL5F5664WCvcwAZfifIMlyl2n.png)](https://asciinema.org/a/ZL5F5664WCvcwAZfifIMlyl2n)
 
 
 Elimina las imagenes (AMIs) creadas:
