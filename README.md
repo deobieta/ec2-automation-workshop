@@ -5,7 +5,7 @@
 
 * [Resumen del taller](https://github.com/deobieta/ec2-automation-workshop/blob/master/README.md#resumen-del-taller)
 * [Crear usuario administrador para el taller](https://github.com/deobieta/ec2-automation-workshop/blob/master/README.md#crear-usuario-administrador-para-el-taller)
-* [Establece llaves de acceso en la configuracion de Terraform](https://github.com/deobieta/ec2-automation-workshop/blob/master/README.md#Establece-llaves-de-acceso-en-la-configuracion-de-Terraform)
+* [Establece llaves de acceso en la configuracion de Terraform](https://github.com/deobieta/ec2-automation-workshop/blob/master/README.md#establece-llaves-de-acceso-en-la-configuracion-de-terraform)
 * [Crear servidor mgmt](https://github.com/deobieta/ec2-automation-workshop/blob/master/README.md#crear-servidor-mgmt)
 * [Crear imagen Web con Aplicacion en Docker](https://github.com/deobieta/ec2-automation-workshop/blob/master/README.md#crear-imagen-web-con-aplicacion-en-docker)
 * [Crear repositorio en ECR y construir imagen de Docker](https://github.com/deobieta/ec2-automation-workshop/blob/master/README.md#crear-repositorio-en-ecr-y-construir-imagen-de-docker)
