@@ -17,7 +17,7 @@
 
 El taller tiene como finalidad hacer una introducción al uso de herramientas de automatización de infraestructura en [EC2](https://aws.amazon.com/ec2/). 
 
-Antes de comenzar el taller es necesario tener completar los siguientes pasos:
+Antes de comenzar el taller es necesario completar los siguientes pasos:
 
 * [Tener una cuenta en AWS](<https://aws.amazon.com>)
 * [Instalar Terraform](<https://www.terraform.io/downloads.html>)
@@ -59,7 +59,7 @@ Para establecer las llaves de acceso puedes exportar las credenciales como varia
     $ export AWS_ACCESS_KEY_ID="AKIAJ3RAVUDDQWJADQSQ"
     $ export AWS_SECRET_ACCESS_KEY="BpXA8AbiC1vgZUTVrKzsxB/zRnPCaIe8YjP0Q9VDu"
 
-También puedes usar el editor de tu elección abrir el archivo 1-workshop-mgmt/terraform/provider.tf, descomentar las dos lineas de las llaves de accesso y reemplazar el texto "ACCESS_KEY_HERE" y "SECRET_KEY_HERE".
+También puedes usar el editor de tu elección, abrir el archivo 1-workshop-mgmt/terraform/provider.tf, descomentar las dos lineas de las llaves de accesso y reemplazar el texto "ACCESS_KEY_HERE" y "SECRET_KEY_HERE".
 
 [![asciicast](https://asciinema.org/a/r0vqkbAWd9Ov8JMlMs87ZXHUg.png)](https://asciinema.org/a/r0vqkbAWd9Ov8JMlMs87ZXHUg)
 
@@ -79,11 +79,11 @@ Terraform creará un plan de ejecución y al final pregunta si quieres aplicar e
 
 [![asciicast](https://asciinema.org/a/hGcOmcoULta4FlYRE6Xk2VVxy.png)](https://asciinema.org/a/hGcOmcoULta4FlYRE6Xk2VVxy)
 
-Al aplicar el plan, Terraform dará dos valores de salida, uno es la dirección IP del servidor que acabamos de crear y que utilizaremos para entrar al servidor mgmt y crear infraestructura desde nuestra VPC default, el otro valor es el identificador de la imagen (AMI) que utilizamos para crear el servidor mgmt y que necesitamos saber para crear nuestra imagen (AMI) personalizada y crear nuestro servidor Web a partir de ella. 
+Al aplicar el plan, Terraform dará dos valores de salida, uno es la dirección IP del servidor mgmt que acabamos de crear y que utilizaremos para crear más infraestructura desde el interior de nuestra VPC default, el otro valor es el identificador de la imagen (AMI) que utilizaremos para crear una imagen (AMI) personalizada y a partir de ella crear nuestro servidor Web. 
 
 ## Crear servidor Web 
 
-Entra al servidor via secure shell utilizando la llave privada insegura de [Vagrant](https://raw.githubusercontent.com/hashicorp/vagrant/master/keys/vagrant) y el usuario de Amazon Linux.
+Entra al servidor via Secure Shell utilizando la llave privada insegura de [Vagrant](https://raw.githubusercontent.com/hashicorp/vagrant/master/keys/vagrant) y el usuario de Amazon Linux.
 
     $ chmod 0600 ssh-keys/vagrant
     $ ssh -i ssh-keys/vagrant ec2-user@18.223.2.127
@@ -92,7 +92,7 @@ Entra al servidor via secure shell utilizando la llave privada insegura de [Vagr
 
 [![asciicast](https://asciinema.org/a/eTOuvt9i5A4hVu4pmGqNxtsGe.png)](https://asciinema.org/a/eTOuvt9i5A4hVu4pmGqNxtsGe)
 
-Una vez creada la imagen pre-configurada podemos aprovisionar un servidor que sirva nuestra applicación Web. El servidor consiste de un servidor Web (NGINX) que sirve como proxy para servir una aplicación hecha en python Flask. Para mas detalles de la aplicación ver el archivo de configuración del servidor que es 2-workshop-web/packer/ansible/web-playbook.yml
+Una vez creada la imagen pre-configurada podemos aprovisionar un servidor que sirva nuestra applicación Web. El servidor consiste de un servidor Web (NGINX) que sirve como proxy para servir una aplicación hecha en Python Flask. Para mas detalles de la aplicación ver el archivo de configuración del servidor que es 2-workshop-web/packer/ansible/web-playbook.yml
 
     $ cd ~/2-workshop-web/terraform/
     $ terraform init
@@ -115,7 +115,7 @@ Utiliza la dirección IP de la salida aws_eip_web_public_ip en cualquier navegad
 
 ## Crear imagen Web con Aplicacion en Docker
 
-Entra al servidor via secure shell utilizando la llave privada insegura de Vagrant y el usuario de Amazon Linux.
+Entra al servidor via Secure Shell utilizando la llave privada insegura de Vagrant y el usuario de Amazon Linux.
 
     $ chmod 0600 ssh-keys/vagrant
     $ ssh -i ssh-keys/vagrant ec2-user@18.223.2.127
@@ -125,7 +125,7 @@ Entra al servidor via secure shell utilizando la llave privada insegura de Vagra
 
 [![asciicast](https://asciinema.org/a/J6aOAHt633ciXztkACpv8jBHc.png)](https://asciinema.org/a/J6aOAHt633ciXztkACpv8jBHc)
 
-Nuestra imagen con NGINX y Docker engine está lista pero antes de crear el servidor que sirva nuestra aplicación debemos crear un repositorio de Docker para alojar la imagen y que crear la imagen de Docker que queremos alojar. Para mas detalles del servidor ver el archivo de configuración que es 3-workshop-web-docker/packer/ansible/web-docker-playbook.yml
+Nuestra imagen con NGINX y Docker Engine está lista, pero antes de crear el servidor que sirva nuestra aplicación debemos crear un repositorio de Docker para alojar y crear la imagen de Docker. Para mas detalles del servidor ver el archivo de configuración que es 3-workshop-web-docker/packer/ansible/web-docker-playbook.yml
 
 
 ## Crear repositorio en ECR y construir imagen de Docker.
@@ -198,11 +198,11 @@ Push de imagen de Docker:
 
 ## Crear servidor Web con aplicacion en Docker
 
-Una vez creada la imagen pre-configurada podemos aprovisionar un servidor que sirva nuestra applicación Web. El servidor consiste de un servidor Web (NGINX) que sirve como proxy para servir una aplicación hecha en python Flask que corre dentro de un contenedor de Docker. Para mas detalles de la aplicación ver el archivo de configuración del servidor que es 2-workshop-web/packer/ansible/web-playbook.yml
+Una vez creada la imagen pre-configurada podemos aprovisionar un servidor que sirva nuestra applicación Web. La máquina consiste de un servidor Web (NGINX) que funciona como proxy para servir una aplicación hecha en Python Flask que corre dentro de un contenedor de Docker. Para más detalles de la aplicación ver el archivo de configuración del servidor que es 2-workshop-web/packer/ansible/web-playbook.yml
 
     $ cd ~/3-workshop-web-docker/terraform/
     
- Es importante que la configuración del servidor (later/ec2.tf) no esté presente hasta tener nuestra imagen (AMI), repositorio de ECR e imagen de Docker creadas de antemano, de otra forma nuestra aplicación del plan de Terraform fallaría por no tener los recursos necesarios. Ahora que están creados movemos la configuración de Terraform del servidor al directorio donde aplicamos los cambios de Terraform:
+ Es importante que la configuración del servidor (later/ec2.tf) no esté presente hasta tener nuestra imagen (AMI), repositorio de ECR e imagen de Docker creadas de antemano, de otra forma nuestra aplicación del plan de Terraform fallaría por no tener los recursos necesarios. Ahora que están creados, movemos la configuración de Terraform del servidor al directorio donde aplicamos los cambios de Terraform:
 
     $ mv later/ec2.tf .
     $ terraform init
@@ -216,7 +216,7 @@ Una vez creada la imagen pre-configurada podemos aprovisionar un servidor que si
 
 [![asciicast](https://asciinema.org/a/rVlfWlzfPrlHXBMo0oMd0UHIZ.png)](https://asciinema.org/a/rVlfWlzfPrlHXBMo0oMd0UHIZ)
 
-Utiliza la dirección IP de la salida aws_eip_web_docker_public_ip en cualquier navegador para revisar que la aplicación está sirviendo de forma correcta. Puede tardar algunos minutos en verse correctamente.
+Utiliza la dirección IP de la salida aws_eip_web_docker_public_ip en cualquier navegador para revisar que la aplicación está funcionando de forma correcta. Puede tardar algunos minutos en verse correctamente.
 
 **Hacer otra versión de la aplicación en otro imagen de Docker y cambiar contenedor que corre actualmente por la versión nueva de imagen.
 
