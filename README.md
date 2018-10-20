@@ -256,7 +256,7 @@ Utiliza la dirección IP de la salida aws_eip_web_docker_public_ip en cualquier 
 ![user output](/readme-images/mgc.gif)
 
 
-Elimina las imagenes (AMIs) creadas:
+Elimina las imagenes (AMIs) creadas y snapshots:
 
 
 ![user output](/readme-images/ec2/1.png)
