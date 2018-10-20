@@ -12,7 +12,7 @@ data "aws_ami" "web" {
 
   filter {
     name   = "name"
-    values = ["web*"]
+    values = ["webapp*"]
   }
 }
 

@@ -17,7 +17,7 @@
       "ssh_interface": "private_ip",
       "ami_name": "web.{{timestamp}}",
       "tags": {
-        "Name": "web.{{timestamp}}",
+        "Name": "webapp.{{timestamp}}",
         "Application": "NGINX + Flask"
       }
     }
