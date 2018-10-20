@@ -15,7 +15,7 @@
       "instance_type": "t2.micro",
       "ssh_username": "ec2-user",
       "ssh_interface": "private_ip",
-      "ami_name": "web.{{timestamp}}",
+      "ami_name": "webapp.{{timestamp}}",
       "tags": {
         "Name": "webapp.{{timestamp}}",
         "Application": "NGINX + Flask"
