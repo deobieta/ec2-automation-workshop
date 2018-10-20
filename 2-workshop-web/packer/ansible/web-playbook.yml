@@ -6,12 +6,13 @@
   become_user: root
 
   tasks:
-  - name: update all
-    yum:
-      name: '*'
-      state: latest
-    become: yes
-    become_user: root
+  # comentado para ahorrar tiempo
+  #- name: update all
+  #  yum:
+  #    name: '*'
+  #    state: latest
+  #  become: yes
+  #  become_user: root
     
   - name: install requirements
     yum:
