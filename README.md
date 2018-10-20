@@ -158,6 +158,7 @@ Para probar la imagen:
     $ curl "http://localhost:5000"
 
 Etiquetar imagen:
+    
     $ sudo docker tag local/web:latest 059715603496.dkr.ecr.us-east-2.amazonaws.com/web-docker:latest
 
 Iniciar sesión en [ECR](https://aws.amazon.com/ecr/):
