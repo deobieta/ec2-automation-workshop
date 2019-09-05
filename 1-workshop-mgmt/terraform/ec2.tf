@@ -8,7 +8,7 @@
 
 data "aws_ami" "amazon_linux" {
   most_recent = true
-
+  owners = ["amazon"]
   filter {
     name   = "owner-alias"
     values = ["amazon"]
@@ -48,7 +48,7 @@ resource "aws_instance" "mgmt" {
   vpc_security_group_ids = ["${aws_security_group.ssh.id}"]
   iam_instance_profile   = "${aws_iam_instance_profile.mgmt.name}"
 
-  tags {
+  tags = {
     Name        = "mgmt host"
     Description = "Workshop EC2 automation"
   }
@@ -56,8 +56,9 @@ resource "aws_instance" "mgmt" {
   provisioner "file" {
     source      = "ansible/mgmt-setup-playbook.yml"
     destination = "/home/ec2-user/mgmt-setup-playbook.yml"
-
+    
     connection {
+      host        = self.public_ip
       type        = "ssh"
       user        = "ec2-user"
       private_key = "${file("../../ssh-keys/vagrant")}"
@@ -69,6 +70,7 @@ resource "aws_instance" "mgmt" {
     destination = "/home/ec2-user"
 
     connection {
+      host        = self.public_ip
       type        = "ssh"
       user        = "ec2-user"
       private_key = "${file("../../ssh-keys/vagrant")}"
@@ -80,6 +82,7 @@ resource "aws_instance" "mgmt" {
     destination = "/home/ec2-user"
 
     connection {
+      host        = self.public_ip
       type        = "ssh"
       user        = "ec2-user"
       private_key = "${file("../../ssh-keys/vagrant")}"
@@ -91,6 +94,7 @@ resource "aws_instance" "mgmt" {
     destination = "/home/ec2-user"
 
     connection {
+      host        = self.public_ip
       type        = "ssh"
       user        = "ec2-user"
       private_key = "${file("../../ssh-keys/vagrant")}"
@@ -104,6 +108,7 @@ resource "aws_instance" "mgmt" {
     ]
 
     connection {
+      host        = self.public_ip
       type        = "ssh"
       user        = "ec2-user"
       private_key = "${file("../../ssh-keys/vagrant")}"
@@ -155,7 +160,7 @@ resource "aws_security_group" "ssh" {
   name        = "sshSG"
   description = "Grupo de seguridad ssh"
 
-  tags {
+  tags = {
     Name = "Grupo de seguridad ssh"
   }
 }
